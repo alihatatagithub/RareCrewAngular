@@ -1,0 +1,49 @@
+
+
+<form >
+
+
+    <div class="container">
+        <div class="form-group">
+            <div class="col-sm-4">
+                <label>Password</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="password"name="Password" class="form-control" ngModel #Password="ngModel" minlength="8"  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[$|#|@|~|^|&|!|)|(| |>|]).{8,}$" required  >
+              
+                <div class="row">
+                    <div class="col-sm-4" *ngIf="Password.touched && Password.errors?.required" class="alert alert-danger">
+                        ------- 
+                         
+                     </div>
+     
+                     <div class="col-sm-4" *ngIf="Password.touched && Password.errors?.pattern" class="alert alert-danger">
+                        --------  
+                         
+                     </div>
+
+
+                     <div class="col-sm-4" *ngIf="Password.touched && Password.errors?.minlength" class="alert alert-danger">
+                          --------
+                         
+                     </div>
+     
+                    
+                     <div class="container">
+                         <div  *ngIf="Password.touched && Password.valid" class="alert alert-success">
+                            ---------------------
+                         </div>
+                     </div>
+                      
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  
+    <input class="btn btn-primary" type="submit" value="Login">
+</form>
